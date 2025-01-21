@@ -7,7 +7,7 @@
       class="mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
     >
       <slot>
-        <ModalHeader v-text="Update Log" />
+        <ModalHeader v-text="title" />
         <div class="py-3 px-8">
           <p>{{ output }}</p>
         </div>
@@ -39,6 +39,7 @@ export default {
     return {
       showModal: false,
       output: "",
+      title: "Update Log"
     };
   },
   methods: {
