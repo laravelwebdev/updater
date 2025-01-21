@@ -46,7 +46,7 @@ export default {
       Nova.request()
         .post("/nova-vendor/updater/update")
         .then((response) => {
-          this.output = response.data.status;
+          this.output = response.data.output;
           this.showModal = true;
         });
     },
