@@ -16,16 +16,18 @@ export default {
   components: { Button },
     data() {
     return {
-      buttonIcon: 'arrow-path'
+      buttonIcon: 'inbox-arrow-down'
     }
   },
   methods:{
     update() {
+      if (confirm('Apakah Anda Ingin Mengupdate Aplikasi Simpede?') === true){
       this.buttonIcon = 'play-circle';
         Nova.request().post('/nova-vendor/updater/update').then(response => {
           alert(response.data.status);
-          this.buttonIcon = 'arrow-path';
+          this.buttonIcon = 'inbox-arrow-down';
         });
+      }
     },
   }
 }
