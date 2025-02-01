@@ -26,6 +26,7 @@ export default {
         Nova.request().post('/nova-vendor/updater/update').then(response => {
           alert(response.data.status);
           this.buttonIcon = 'inbox-arrow-down';
+          location.reload();
         });
       }
     },
