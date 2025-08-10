@@ -31,7 +31,6 @@ export default {
             Nova.error('Update gagal!');
           }
           this.buttonIcon = 'inbox-arrow-down';
-          location.reload();
         });
       }
     },
