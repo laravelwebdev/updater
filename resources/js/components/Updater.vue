@@ -22,9 +22,14 @@ export default {
   methods:{
     update() {
       if (confirm('Apakah Anda Ingin Mengupdate Aplikasi Simpede?') === true){
+      Nova.success('Proses Update Sedang Berlangsung. Silakan Tunggu..');
       this.buttonIcon = 'play-circle';
         Nova.request().post('/nova-vendor/updater/update').then(response => {
-          alert(response.data.status);
+          if (response.data.status === true) {
+            Nova.success('Update berhasil!');
+          } else {
+            Nova.error('Update gagal!');
+          }
           this.buttonIcon = 'inbox-arrow-down';
           location.reload();
         });
