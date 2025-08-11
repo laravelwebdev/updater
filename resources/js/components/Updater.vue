@@ -23,18 +23,21 @@ export default {
   },
   methods:{
     update() {
+      if (confirm('Apakah Anda Ingin Mengupdate Aplikasi Simpede?') === true){
       Nova.success('Proses Update Sedang Berlangsung. Silakan Tunggu..');
       this.buttonIcon = 'no-symbol';
       this.isDisabled = true;
         Nova.request().post('/nova-vendor/updater/update').then(response => {
           if (response.data.status === true) {
             Nova.success('Update berhasil!');
+            this.buttonIcon = 'check';
           } else {
             Nova.error('Update gagal!');
+            this.buttonIcon = 'x-mark';
           }
-          this.buttonIcon = 'arrow-path';
           this.isDisabled = false;
         });      
+    }
     },
   }
 }
